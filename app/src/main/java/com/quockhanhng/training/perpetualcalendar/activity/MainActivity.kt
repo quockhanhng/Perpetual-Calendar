@@ -1,7 +1,8 @@
-package com.quockhanhng.training.perpetualcalendar
+package com.quockhanhng.training.perpetualcalendar.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.quockhanhng.training.perpetualcalendar.R
 
 class MainActivity : AppCompatActivity() {
 

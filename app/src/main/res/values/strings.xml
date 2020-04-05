@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Perpetual Calendar</string>
+    <string name="details">Chi tiết</string>
+    <string name="calendar">Lịch tháng</string>
+    <string name="change">Đổi ngày</string>
+    <string name="pray">Văn khấn</string>
 </resources>

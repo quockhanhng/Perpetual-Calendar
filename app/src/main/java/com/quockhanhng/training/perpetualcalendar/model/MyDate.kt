@@ -5,7 +5,7 @@ import kotlin.math.floor
 import kotlin.math.sin
 
 
-class Date(private val day: Int, private val month: Int, private val year: Int) {
+class MyDate(private val day: Int, private val month: Int, private val year: Int) {
 
     companion object {
         val WEEKDAYS =

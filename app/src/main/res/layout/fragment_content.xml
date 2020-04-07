@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:id="@+id/tvDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#0800FF"
+        android:textSize="110sp"
+        android:textStyle="bold"
+        tools:text="7" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tvQuote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvWeekDay"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="“Sự ghét bỏ luôn là sai lầm, nhưng yêu thương thì không” Lady Gaga" />
+
+    <TextView
+        android:id="@+id/tvWeekDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="140dp"
+        android:gravity="center"
+        android:textColor="#00BCD4"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:text="Thứ Ba" />
+</RelativeLayout>

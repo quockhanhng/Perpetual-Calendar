@@ -5,6 +5,76 @@
     <string name="change">Đổi ngày</string>
     <string name="pray">Văn khấn</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="quotes_array">
+        <item>“Sự ghét bỏ luôn là sai lầm, nhưng yêu thương thì không” Lady Gaga</item>
+        <item>“Tình yêu chính là lòng trung thành. Con người với vẻ bề ngoài có thể phai nhạt, nhưng sự trung thành thì không.”Sylvester Stallon.</item>
+        <item>“Chúng ta nên yêu, chứ đừng nên ngã vào tình yêu. Bởi vì bất kỳ cái gì mà ngã thì sẽ đau.”Taylor Swift</item>
+        <item>“Nếu bạn yêu hai người một lúc, hãy chọn người thứ hai. Bởi vì nếu như bạn thật sự yêu người thứ nhất thì bạn đã không có tình cảm với người thứ hai.”Johnny Depp</item>
+        <item>Cuối cùng, tình yêu mà bạn nhận được sẽ tương xứng với tình yêu mà bạn cho đi. Paul Mccartney</item>
+        <item>Trí tuệ trực giác là một năng khiếu thiêng liêng và trí tuệ thuần lý là đầy tớ trung thành. Chúng ta đã tạo ra một xã hội chỉ tôn kính tên đầy tớ mà quên mất đi cái năng khiếu. – Albert Einstein</item>
+        <item>Nói hay và hùng hồn là một nghệ thuật, nhưng biết lúc nào cần ngừng lời cũng là một nghệ thuật chẳng kém hơn. – Wolfgang Amadeus Mozart</item>
+        <item>Tôi không biết chiến tranh thế giới thứ 3 sẽ sử dụng vũ khí nào nhưng tôi biết rằng chiến tranh thế giới thứ 4 sẽ sử dụng gậy gộc và đá. – Albert Einstein</item>
+        <item>Kẻ nào chưa từng mắc phải lỗi lầm cũng là kẻ chưa bao giờ thử làm việc gì cả. – Albert Einstein</item>
+        <item>Thằng ngốc tự cho mình là thông minh, còn người thông minh biết mình là thằng ngốc. – William Shakespeare</item>
+        <item>Điều tôi muốn biết trước tiên không phải là bạn đã thất bại ra sao mà là bạn đã chấp nhận nó như thế nào. – Abraham Lincoln</item>
+        <item>Nếu cho tôi 6 tiếng để đốn hạ một cái cây, tôi sẽ dành 4 tiếng đầu tiên để mài rìu. – Abraham Lincoln</item>
+        <item>Chúng ta có thể phàn nàn vì trong bụi hoa hồng có gai, hoặc là vui mừng vì trong bụi gai có hoa hồng. – Abraham incoln</item>
+        <item>Năng khiếu tưởng tượng có ý nghĩa đối với tôi hơn là tài năng tiếp thu kiến thức. – Albert Einstein</item>
+        <item> Hầu hết mọi người đánh giá quá cao những gì họ có thể làm trong một năm và đánh giá quá thấp những gì họ có thể làm trong mười năm. – Bill Gates</item>
+        <item> Dù chỉ nắm vững một kiến thức nào đó, cũng đều có ích cho trí óc, nó sẽ ném đi những thứ vô dụng nhưng giữ lại những thứ có ích. – Leonardo da Vinci</item>
+        <item> Hạnh phúc lớn nhất là sống hài lòng từng chút một. – Plato</item>
+        <item> Đừng giới hạn một đứa trẻ bằng học thức của bạn bởi nó được sinh ra ở một thời đại khác – Rabindranath Tagore</item>
+        <item> Tôi không sợ những kẻ tập một lần 10.000 cú đá, tôi chỉ sợ những kẻ tập 10.000 lần một cú đá – Bruce Lee</item>
+        <item> Mọi thứ bạn muốn đều có thể là của bạn: Kiểu công việc bạn muốn, mối quan hệ bạn cần, những điều làm bạn hạnh phúc. Nhưng trước tiên bạn phải biết bản thân mình muốn điều gì? – Richard Koch.</item>
+        <item> Phải có trí tuệ, dù nhỏ bé cũng được, nhưng phải là trí tuệ của mình – MAXIM GORKI.</item>
+        <item> Nếu cơ hội không gõ cửa nhà bạn, có nghĩa là nhà bạn chưa có cửa, hãy gắn 1 cái. – Moilton Berle</item>
+        <item>“ Đừng so sánh bản thân với người khác. Làm như vậy là bạn đang tự xúc phạm mình đấy” – Bill Gates</item>
+        <item> Trong một thế giới đang thay đổi rất nhanh chóng, lộ trình duy nhất đưa bạn đến thất bại là không dám mạo hiểm” – Mark Zuckerberg</item>
+        <item> Thiên tài 1% là cảm hứng và 99% là mồ hôi” – Thomas Edison</item>
+        <item> Nếu bạn không chịu bắt tay vào làm thì chẳng có điều gì là khả thi cả” – Jack Ma</item>
+        <item> Hãy quay về phía mặt trời và bạn sẽ không thấy bóng tối” – Helen Keller</item>
+        <item>“Nếu cho tôi 6 tiếng để đốn hạ một cái cây, tôi sẽ dành 4 tiếng đầu tiên để mài rìu” – Abraham Lincoln </item>
+        <item>“Kẻ nào chưa từng mắc phải lỗi lầm cũng là kẻ chưa bao giờ thử làm việc gì cả” – Albert Einstein</item>
+        <item>“ Cách để bắt đầu đó là ngừng nói suông và bắt tay vào công việc” – Walt Disney</item>
+        <item>“Nếu bạn sinh ra trong nghèo khó đó không phải là lỗi của bạn. Nhưng nếu bạn chết trong nghèo khó thì đó là lỗi của bạn” – Bill Gates</item>
+        <item> “Đừng đặt ra giới hạn cho chính mình” – Oprah Winfrey</item>
+        <item> Kẻ khốn cùng nhất trên thế giới này không phải là những người không một xu dính túi, mà là kẻ không có nổi một ước mơ – Khuyết danh</item>
+        <item> Đẩy tình bạn ra khỏi cuộc sống của mình, chẳng khác gì đẩy mặt trời ra khỏi thế giới này.</item>
+        <item>. Mọi thứ bạn muốn đều có thể là của bạn: Kiểu công việc bạn muốn, mối quan hệ bạn cần, những điều làm bạn hạnh phúc. Nhưng trước tiên bạn phải biết bản thân mình muốn điều gì? – Richard Koch.</item>
+        <item> Phải có trí tuệ, dù nhỏ bé cũng được, nhưng phải là trí tuệ của mình -MAXIM GORKI.</item>
+        <item>‘Một cách để tận dụng tối đa cuộc sống là xem nó như một cuộc phiêu lưu’ – William Feather</item>
+        <item>‘Tích cực, tự tin và kiên trì là chìa khóa trong cuộc sống. Vì vậy đừng bao giờ từ bỏ chính mình’ – Khalid</item>
+        <item>‘Yêu tôi hay ghét tôi, cả hai đều có lợi cho tôi. Nếu bạn yêu tôi, tôi sẽ luôn ở trong tim bạn và nếu bạn ghét tôi, tôi sẽ ở trong tâm trí bạn’ – Baland Quandeel</item>
+        <item>‘Thái độ quan trọng hơn quá khứ, hơn giáo dục, hơn tiền bạc, hơn hoàn cảnh, hơn những gì mọi người làm hoặc nói. Nó quan trọng hơn ngoại hình, năng khiếu hay kỹ năng’ – Charles. Swindoll</item>
+        <item>‘Hãy tin vào chính mình! Có niềm tin vào khả năng của bạn! Nếu không có sự tự tin khiêm tốn nhưng hợp lý vào năng lực của chính mình, bạn không thể thành công hay hạnh phúc’ - Norman Vincent Peale</item>
+        <item>‘Trong đời người, có hai con đường bằng phẳng không trở ngại: Một là đi tới lý tưởng, một là đi tới cái chết’ - Lev Tolstoy</item>
+        <item>‘Bạn có thể thay đổi thế giới của mình bằng cách thay đổi lời nói của bạn ... Hãy nhớ rằng, cái chết và sự sống nằm trong sức mạnh của lưỡi’ - Joel Osteen</item>
+        <item>‘Lạc quan là niềm tin dẫn đến thành tích. Không có gì có thể được thực hiện mà không có hy vọng và sự tự tin’ - Helen Keller</item>
+        <item>‘Nếu bạn muốn thành công, bạn nên tìm ra những con đường mới, thay vì đi trên những con đường mòn của sự thành công được chấp nhận’ - John D. Rockefeller</item>
+        <item>‘Nếu bạn không thích cái gì đó, hãy thay đổi nó. Nếu bạn không thể thay đổi nó, hãy thay đổi thái độ của bạn’ - Maya Angelou</item>
+        <item>‘Hạnh phúc không phụ thuộc vào bất kỳ điều kiện bên ngoài nào, nó bị chi phối bởi thái độ tinh thần của chúng ta’ - Dale Carnegie</item>
+        <item>‘Lợi thế của người chiến thắng không nằm ở năng khiếu, IQ cao hay tài năng. Lợi thế của người chiến thắng tất cả nằm trong thái độ. Thái độ là tiêu chí để thành công’ - Denis Waitley</item>
+        <item>‘Cuộc sống vốn không bằng. Hãy tập quen dần với điều đó’ – Bill Gates</item>
+        <item>‘Hãy tốt với mọi người khi bạn giàu sang bởi vì bạn cũng như họ khi bạn đi xuống’ - Jimmy Durante</item>
+        <item>‘Cuộc sống là 10% những gì xảy ra với bạn và 90% bạn phản ứng với nó như thế nào’ - Charles R. Swindoll</item>
+        <item>‘Đến với nhau là một sự khởi đầu, giữ nhau là tiến bộ, làm việc cùng nhau là thành công’ – Edward Everett Hale</item>
+        <item>‘Bốn điều để thành công: Làm việc và cầu nguyện, suy nghĩ và tin tưởng’ – Norman Vincent Peale</item>
+        <item>‘Một trong những phẩm chất đẹp nhất của tình bạn chân chính là hiểu và được hiểu’ – Lucius Annaeus Seneca</item>
+        <item>‘Biết là không đủ, chúng ta phải áp dụng. Sẵn sàng là không đủ, chúng ta phải làm’ - Johann Wolfgang von Goethe</item>
+        <item>‘Sự yếu đuối trong thái độ trở thành sự yếu đuối trong tính cách’ - Albert Einstein</item>
+        <item> ‘Đừng sống trong quá khứ, đừng mơ về tương lai, hãy tập trung tâm trí vào giây phút hiện tại’ - Phật giáo</item>
+        <item>‘Bạn không cần phải tìm ra chính xác bạn là ai. Bạn chỉ cần sống cuộc sống của chính bạn’ – Shane dawson</item>
+        <item>‘Từ những gì chúng ta nhận, chúng ta có thể tạo dựng một cuộc sống. Tuy nhiên, từ những gì chúng ta cho, lại làm nên một cuộc đời’  - Arthur Ashe - Reader\'s Digest</item>
+        <item>‘Bạn không nhất thiết phải trở nên vĩ đại để bắt đầu, mà bạn phải bắt đầu để trở nên vĩ đại’ - Les Brown</item>
+        <item>‘Đừng đánh giá cao những gì bạn nhận được, cũng đừng đòi hỏi thêm. Người còn ham muốn những thứ khác sẽ không an lạc trong tâm’ - Buddha Sayings</item>
+        <item>‘Hãy mơ những gì bạn muốn mơ, đó là cái đẹp của tâm trí con người . Hãy làm những gì bạn muốn làm, đó là sức mạnh của con người. Hãy tin vào chính mình, hãy thách thức giới hạn của mình, đó là sự can đảm mang tới thành công’ - Bernard Edmonds</item>
+        <item>‘Không phải chúng ta làm được bao nhiêu, mà là chúng ta đặt bao nhiêu lòng yêu thương vào việc chúng ta làm’  - Mother Teresa</item>
+        <item>‘Tất cả mọi người đều biết con đường phải đi, nhưng rất ít người thật sự đi theo con đường đó’ – Bodhidharma</item>
+        <item>‘Cứ tha thứ cho những kẻ thù của bạn, nhưng đừng bao giờ quên tên của họ’ - John F. Kennedy</item>
+        <item>‘Bạn chỉ sống một lần, nhưng nếu bạn làm nó đúng, thì một lần là đủ’ - Joe Lewis</item>
+        <item>‘Trong một thế giới đang thay đổi rất nhanh chóng, lộ trình duy nhất đưa bạn đến thất bại là không dám mạo hiểm’ – Mark Luckerbery</item>
+        <item>‘Nếu bạn yêu ai đó, hãy đặt tên họ vào một vòng tròn, thay vì để trong tim, bởi vì tim có thể vỡ, nhưng vòng tròn thì sẽ di chuyển mãi mãi’ - William Blake</item>
+        <item>‘Trong một thế giới đang thay đổi rất nhanh chóng, lộ trình duy nhất đưa bạn đến thất bại là không dám mạo hiểm’ – Mark Luckerbery</item>
+
+    </string-array>
 </resources>

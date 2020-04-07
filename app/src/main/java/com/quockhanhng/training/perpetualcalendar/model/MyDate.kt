@@ -4,30 +4,25 @@ import java.util.*
 import kotlin.math.floor
 import kotlin.math.sin
 
-
 class MyDate(private val day: Int, private val month: Int, private val year: Int) {
 
     companion object {
-        val WEEKDAYS =
-            arrayOf("Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
-        val WEEKDAYS_SHORT =
-            arrayOf("Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri")
         val CAN =
-            arrayOf("Giap", "At", "Binh", "Dinh", "Mau", "Ky", "Canh", "Tan", "Nham", "Quy")
+            arrayOf("Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý")
         val CHI =
             arrayOf(
-                "Ti",
-                "Suu",
-                "Dan",
-                "Mao",
-                "Thin",
-                "Ty",
-                "Ngo",
-                "Mui",
-                "Than",
-                "Dau",
-                "Tuat",
-                "Hoi"
+                "Tí",
+                "Sửu",
+                "Dần",
+                "Mão",
+                "Thìn",
+                "Tỵ",
+                "Ngọ",
+                "Mùi",
+                "Thân",
+                "Dậu",
+                "Tuất",
+                "Hợi"
             )
         val THANG =
             arrayOf(
@@ -56,93 +51,84 @@ class MyDate(private val day: Int, private val month: Int, private val year: Int
         private const val TIMEZONE = 7.0 // Hanoi, Jakarta timezone..
     }
 
-    private fun getCentury4Zeller(year: Int): Int {
-        return year / 100
-    }
-
-    private fun getMonth4Zeller(month: Int): Int {
-        return if (month < 3) month + 10 else month
-    }
-
-    private fun getYear4Zeller(year: Int): Int {
-        return year % 100
-    }
-
-    private fun zeller(day: Int, month: Int, year: Int, century: Int): Int {
-        return Math.floorMod(
-            day + 13 * (month + 1) / 5 + year + year / 4 + century / 4 - 2 * century, 7
-        )
-    }
-
-    // Get the day of week
-    fun getWeekDay(): String? {
-        val i = zeller(
-            day,
-            getMonth4Zeller(month),
-            getYear4Zeller(year),
-            getCentury4Zeller(year)
-        )
-        return WEEKDAYS[i]
-    }
-
-
     // Check if a specific year is Leap or not.
     private fun isLeapYear(): Boolean {
         return year % 4 == 0 && year % 100 != 0 || year % 400 == 0
     }
 
-    private fun isLeapYear(year: Int): Boolean {
-        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0
-    }
-
     // Get hour in CAN CHI.
     fun getHourCAN(h: Int): String? {
-        return "Giờ " + CAN[2 * (h - 1) % 10] + " " + CHI[0]
+        return CAN[2 * (h - 1) % 10] + " " + CHI[0]
     }
 
-    fun getLunarDayCanChiName(d: Int): String? {
-        return "Ngày " + CAN[(d + 9) % 10] + " " + CHI[(d + 1) % 12]
-    }
+    fun getLunarDayCanChiName(d: Int, m: Int, y: Int): String? {
+        // Tim can
+        var nStem = 0
+        nStem += d % 10
+        nStem += when (m) {
+            8 -> 0
+            9, 10 -> 1
+            11, 12 -> 2
+            3 -> 7
+            1, 4, 5 -> 8
+            2, 6, 7 -> 9
+            else -> -1
+        }
+        if (isLeapYear()) {
+            if (m == 1)
+                nStem += 7 - 8      // Vi da cong voi 8 o tren
+            if (m == 2)
+                nStem += 8 - 9      // Vi da cong voi 9 o tren
+        }
+        val yy = y % 100
+        nStem += (yy * 5 + yy / 4) % 10
+        val c = y / 100
+        nStem += (4 * c + c / 4 + 2) % 10
+        nStem %= 10
+        if (nStem == 0) nStem = 10
 
+        //Tim chi
+        var nBranch = 0
+        nBranch += d % 12
+        nBranch += when (m) {
+            11 -> 0
+            4 -> 2
+            2, 6 -> 3
+            8 -> 4
+            10 -> 5
+            12 -> 6
+            3 -> 7
+            1, 5 -> 8
+            7 -> 9
+            9 -> 11
+            else -> -1
+        }
+        if (isLeapYear()) {
+            if (m == 1)
+                nBranch += 7 - 8      // Vi da cong voi 8 o tren
+            if (m == 2)
+                nBranch += 2 - 3      // Vi da cong voi 3 o tren
+        }
+        nBranch += (5 * yy + yy / 4) % 12
+        nBranch += (8 * c + c / 4 + 2) % 12
+        nBranch %= 12
+        if (nBranch == 0) nBranch = 12
+
+        return CAN[nStem - 1] + " " + CHI[nBranch - 1]
+    }
 
     fun getLunarMonthCanChiName(y: Int, m: Int): String? {
-        return "Tháng " + CAN[(3 + (m + y * 12)) % 10] + " " + CHI[(m + 1) % 12]
+        return CAN[(3 + (m + y * 12)) % 10] + " " + CHI[(m + 1) % 12]
     }
 
     fun getLunarMonthName(paramInt: Int): String? {
-        return "Tháng " + THANG[paramInt]
+        return THANG[paramInt]
     }
 
 
     // Without parameters. Use specified attributes of this class.
     private fun getDayInMonth(): Int {
         return if (month == 2) 28 + if (isLeapYear()) 1 else 0 else 31 - (month - 1) % 7 % 2
-    }
-
-    private fun getDaysInMonth(year: Int, month: Int): Int {
-        if (month == 4 || month == 6 || month == 9 || month == 11) {
-            return 30
-        }
-        return if (month == 2) {
-            if (isLeapYear(year)) {
-                29
-            } else 28
-        } else 31
-    }
-
-    fun getCalendarTable(): IntArray {
-        val res = IntArray(42)
-        val start = zeller(
-            1,
-            getMonth4Zeller(month),
-            getYear4Zeller(year),
-            getCentury4Zeller(year)
-        )
-        val end = getDayInMonth()
-        for (i in start until end + start) {
-            res[i] = i - start + 1
-        }
-        return res
     }
 
     fun getCANCHI(): String? {

@@ -3,4 +3,23 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <array name="colors">
+        <item>#E49494</item>
+        <item>#DFCEA4</item>
+        <item>#8ABAAE</item>
+        <item>#687791</item>
+        <item>#958686</item>
+        <item>#BEEC94</item>
+        <item>#EC7464</item>
+        <item>#886091</item>
+        <item>#51A380</item>
+        <item>#D88D5D</item>
+        <item>#605B59</item>
+        <item>#7273E8</item>
+        <item>#B6CC66</item>
+        <item>#3DACDF</item>
+        <item>#2977DA</item>
+        <item>#449848</item>
+    </array>
 </resources>

@@ -10,13 +10,134 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom"/>
+        android:layout_above="@+id/bottom" />
+
+    <TextView
+        android:id="@+id/tvMonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="#FF0000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:text="4/2020" />
 
     <FrameLayout
-        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom" />
+        android:layout_above="@+id/bottom">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bottom_background">
+
+            <TextView
+                android:id="@+id/tvLunarDate"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/circle_shape"
+                android:gravity="center"
+                android:textColor="#068F7B"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:text="15 / 3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_toStartOf="@+id/tvLunarDate"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Ngày"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLunarDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#0800FF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="Canh Thìn" />
+
+                <TextView
+                    android:id="@+id/tvClock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#068F7B"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="12:00:00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/tvLunarDate"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Tháng"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvLunarMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#0800FF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="Canh Thìn" />
+
+                <TextView
+                    android:id="@+id/tvLunarYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#068F7B"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="Canh Tý" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLunarHour"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:textColor="#3F51B5"
+                android:textSize="18sp"
+                tools:text="Giờ Hoàng Đạo: Dần, Thìn, Tỵ, Thân, Dậu, Hợi" />
+        </RelativeLayout>
+    </FrameLayout>
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/bottom"

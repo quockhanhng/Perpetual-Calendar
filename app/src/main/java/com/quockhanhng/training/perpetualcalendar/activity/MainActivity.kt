@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager
 import com.quockhanhng.training.perpetualcalendar.R
 import com.quockhanhng.training.perpetualcalendar.adapter.CalendarAdapter
 import com.quockhanhng.training.perpetualcalendar.fragment.ContentFragment
+import com.quockhanhng.training.perpetualcalendar.model.MyDate
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -22,6 +23,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var displayPrevDay: String
     private lateinit var displayCurrDay: String
     private lateinit var displayNextDay: String
+    private lateinit var dateSplit: List<String>
+    private var dd: Int = 0
+    private var mm: Int = 0
+    private var yyyy: Int = 0
+    private lateinit var myDate: MyDate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +74,15 @@ class MainActivity : AppCompatActivity() {
         displayCurrDay = sdf.format(rightNow)
         displayPrevDay = sdf.format(getPreviousDay(rightNow))
         displayNextDay = sdf.format(getNextDay(rightNow))
+
+        dateSplit = displayCurrDay.split("/")
+        dd = dateSplit[0].toInt()
+        mm = dateSplit[1].toInt()
+        yyyy = dateSplit[2].toInt()
+
+        myDate = MyDate(dd, mm, yyyy)
+        updateUI(myDate)
+
         val mFragments = ArrayList<ContentFragment>()
         mFragments.add(ContentFragment(displayPrevDay))
         mFragments.add(ContentFragment(displayCurrDay))
@@ -112,6 +127,13 @@ class MainActivity : AppCompatActivity() {
 
                     currentPos--
                 }
+                // Update UI
+                dateSplit = displayCurrDay.split("/")
+                dd = dateSplit[0].toInt()
+                mm = dateSplit[1].toInt()
+                yyyy = dateSplit[2].toInt()
+                myDate = MyDate(dd, mm, yyyy)
+                updateUI(myDate)
             }
         })
     }
@@ -133,5 +155,20 @@ class MainActivity : AppCompatActivity() {
         calendar.time = date
         calendar.add(Calendar.DAY_OF_MONTH, 1)
         return calendar.time
+    }
+
+    fun updateUI(myDate: MyDate) {
+        if (tvMonth.text != "$mm/$yyyy")
+            tvMonth.text = "$mm/$yyyy"
+
+        val todayLunar = myDate.getLunar()
+        tvLunarDate.text = todayLunar[0].toString() + "/" + todayLunar[1]
+        tvLunarDay.text = myDate.getLunarDayCanChiName(dd, mm, yyyy)
+        val newLunarMonth = myDate.getLunarMonthCanChiName(todayLunar[2], todayLunar[1])
+        val newLunarYear = myDate.getCANCHI()
+        if (tvLunarMonth.text != newLunarMonth)
+            tvLunarMonth.text = newLunarMonth
+        if (tvLunarYear.text != newLunarYear)
+            tvLunarYear.text = newLunarYear
     }
 }

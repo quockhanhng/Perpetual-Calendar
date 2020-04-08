@@ -11,12 +11,12 @@ class MyDate(private val day: Int, private val month: Int, private val year: Int
             arrayOf("Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý")
         val CHI =
             arrayOf(
-                "Tí",
+                "Tý",
                 "Sửu",
                 "Dần",
                 "Mão",
                 "Thìn",
-                "Tỵ",
+                "Tị",
                 "Ngọ",
                 "Mùi",
                 "Thân",

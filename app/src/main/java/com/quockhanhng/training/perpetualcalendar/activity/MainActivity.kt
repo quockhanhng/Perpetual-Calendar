@@ -1,6 +1,9 @@
 package com.quockhanhng.training.perpetualcalendar.activity
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +11,9 @@ import androidx.viewpager.widget.ViewPager
 import com.quockhanhng.training.perpetualcalendar.R
 import com.quockhanhng.training.perpetualcalendar.adapter.CalendarAdapter
 import com.quockhanhng.training.perpetualcalendar.fragment.ContentFragment
+import com.quockhanhng.training.perpetualcalendar.getGoodHourInDay
 import com.quockhanhng.training.perpetualcalendar.model.MyDate
+import com.quockhanhng.training.perpetualcalendar.model.MyDate.Companion.CHI
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -170,5 +175,9 @@ class MainActivity : AppCompatActivity() {
             tvLunarMonth.text = newLunarMonth
         if (tvLunarYear.text != newLunarYear)
             tvLunarYear.text = newLunarYear
+
+        var goodHours = "Giờ hoàng đạo: "
+        goodHours += getGoodHourInDay(CHI.indexOf(tvLunarDay.text.split(" ")[1]) + 1)
+        tvLunarHour.text = goodHours
     }
 }

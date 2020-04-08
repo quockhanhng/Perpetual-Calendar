@@ -63,3 +63,75 @@ fun getCalendarTable(month: Int, year: Int): IntArray {
     }
     return res
 }
+
+fun getGoodDaysInMonth(month: Int): String {
+    return when (month) {
+        1, 7 -> {
+            "Tý, Sửu, Tị, Mùi"
+        }
+        2, 8 -> {
+            "Dần, Mão, Mùi, Dậu"
+        }
+        3, 9 -> {
+            "Thìn, Tị, Dậu, Hợi"
+        }
+        4, 10 -> {
+            "Ngọ, Mùi, Sửu, Dậu"
+        }
+        5, 11 -> {
+            "Thân, Dậu, Sửu, Mão"
+        }
+        6, 12 -> {
+            "Tuất, Hợi, Mão, Tị"
+        }
+        else -> ""
+    }
+}
+
+fun getBadDaysInMonth(month: Int): String {
+    return when (month) {
+        1, 7 -> {
+            "Ngọ, Mão, Hợi, Dậu"
+        }
+        2, 8 -> {
+            "Thân, Tị, Sửu, Hợi"
+        }
+        3, 9 -> {
+            "Tuất, Mùi, Sửu, Hợi"
+        }
+        4, 10 -> {
+            "Tý, Dậu, Tị, Mão"
+        }
+        5, 11 -> {
+            "Dần, Hợi, Mùi, Tị"
+        }
+        6, 12 -> {
+            "Thìn, Sửu, Dậu, Mùi"
+        }
+        else -> ""
+    }
+}
+
+fun getGoodHourInDay(day: Int): String {
+    return when (day) {
+        1, 7 -> {
+            "Tý, Sửu, Mão, Ngọ, Thân, Dậu"
+        }
+        2, 8 -> {
+            "Dần, Mão, Tị, Thân, Tuất, Hợi"
+        }
+        3, 9 -> {
+            "Tý, Sửu, Thìn, Tị, Mùi, Tuất"
+        }
+        4, 10 -> {
+            "Tý, Dần, Mão, Ngọ, Mùi, Dậu"
+        }
+        5, 11 -> {
+            "Dần, Thìn, Tị, Thân, Dậu, Hợi"
+        }
+        6, 12 -> {
+            "Sửu, Thìn, Ngọ, Mùi, Tuất, Hợi"
+        }
+        else -> ""
+    }
+}

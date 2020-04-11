@@ -5,7 +5,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.quockhanhng.training.perpetualcalendar.fragment.ContentFragment
 
-
 class CalendarAdapter(
     private var mFragments: ArrayList<ContentFragment>,
     fm: FragmentManager
@@ -15,6 +14,7 @@ class CalendarAdapter(
     private var lastPos: Int = 151
 
     override fun getItem(position: Int): Fragment {
+        if (lastPos == 1) lastPos = 151         // Ugly way to fix a bug
         return when {
             position > lastPos -> {
                 lastPos = position

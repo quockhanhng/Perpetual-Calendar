@@ -1,10 +1,11 @@
 package com.quockhanhng.training.perpetualcalendar.model
 
+import java.io.Serializable
 import java.util.*
 import kotlin.math.floor
 import kotlin.math.sin
 
-class MyDate(private val day: Int, private val month: Int, private val year: Int) {
+class MyDate(private val day: Int, private val month: Int, private val year: Int) : Serializable {
 
     companion object {
         val CAN =

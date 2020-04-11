@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBrownBackground"
+    android:orientation="vertical"
+    tools:context=".activity.CalendarActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvToday"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/corner_background_2"
+            android:gravity="center"
+            android:onClick="goBackToday"
+            android:textSize="20sp"
+            tools:text="11" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:onClick="openDatePicker"
+            android:src="@android:drawable/ic_menu_my_calendar" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/corner_background"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/btnBackMonth"
+            android:layout_width="30dp"
+            android:layout_height="23dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:onClick="moveToPreviousMonth"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tvMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            tools:text="4/2020" />
+
+        <ImageView
+            android:id="@+id/btnNextMonth"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:onClick="moveToNextMonth"
+            android:src="@drawable/ic_forward" />
+
+    </LinearLayout>
+
+    <!--    Days header-->
+    <LinearLayout
+        android:id="@+id/calendar_header"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@android:color/holo_green_dark"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="T7"
+            android:textColor="@color/colorBrown"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="CN"
+            android:textColor="@color/colorRed"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="T2"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="T3"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="T4"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="T5"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="T6"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!--    Calendar grid-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calendar_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="50dp"
+            android:background="@android:color/darker_gray"
+            android:onClick="goToDate"
+            android:padding="10dp"
+            android:text="Xem lịch ngày"
+            android:textColor="#0B2EDD" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:background="@android:color/darker_gray"
+            android:padding="10dp"
+            android:text="Thêm ghi chú"
+            android:textColor="#0B2EDD" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/corner_background_2"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            tools:text="Dương lịch: 8 - 4 - 2020" />
+
+        <TextView
+            android:id="@+id/tvLunarDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="18sp"
+            tools:text="Âm lịch: 16 - 3 - 2020" />
+
+        <TextView
+            android:id="@+id/tvLunarDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="18sp"
+            tools:text="Ngày Tân Tị, tháng Canh Thìn, năm Canh Tý" />
+
+        <TextView
+            android:id="@+id/tvIsGoodDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:visibility="gone"
+            tools:text="Ngày hoàng đạo" />
+    </LinearLayout>
+</LinearLayout>

@@ -4,6 +4,13 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="colorBrown">#672F04</color>
+    <color name="colorRed">#DC0F0F</color>
+    <color name="colorBrownBackground">#7C6E5C</color>
+    <color name="colorSelectBackground">#03DCE3</color>
+    <color name="colorTodayBackground">#08A54D</color>
+    <color name="colorNonSelectBackground">#0C7A11</color>
+
     <array name="colors">
         <item>#E49494</item>
         <item>#DFCEA4</item>

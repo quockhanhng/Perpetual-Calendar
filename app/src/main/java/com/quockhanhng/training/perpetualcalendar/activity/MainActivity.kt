@@ -1,9 +1,6 @@
 package com.quockhanhng.training.perpetualcalendar.activity
 
-import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private var currentPos: Int = 151
     private val rightNow = Date()
     private lateinit var displayDay: Date
-    private val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    private val sdf = SimpleDateFormat("d/M/yyyy", Locale.getDefault())
 
     private lateinit var displayPrevDay: String
     private lateinit var displayCurrDay: String
@@ -33,6 +30,8 @@ class MainActivity : AppCompatActivity() {
     private var mm: Int = 0
     private var yyyy: Int = 0
     private lateinit var myDate: MyDate
+    private lateinit var adapter: CalendarAdapter
+    private lateinit var mFragments: ArrayList<ContentFragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +39,43 @@ class MainActivity : AppCompatActivity() {
 
         setUpBottomNav()
         setUpAdapter()
+        tvMonth.setOnClickListener{
+            goToCalendarActivity(displayCurrDay)
+        }
+    }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        intent?.getStringExtra("Chosen day")?.let {
+            goToThisDay(it)
+        }
+    }
+
+    private fun goToThisDay(newDay: String) {
+        currentPos = 151
+
+        displayCurrDay = newDay
+        val s = newDay.split("/")
+        val cal = Calendar.getInstance()
+        cal.set(s[2].toInt(), s[1].toInt() - 1, s[0].toInt())
+        displayDay = cal.time
+        displayPrevDay = sdf.format(getPreviousDay(displayDay))
+        displayNextDay = sdf.format(getNextDay(displayDay))
+        dateSplit = displayCurrDay.split("/")
+        dd = dateSplit[0].toInt()
+        mm = dateSplit[1].toInt()
+        yyyy = dateSplit[2].toInt()
+
+        myDate = MyDate(dd, mm, yyyy)
+        updateUI(myDate)
+        mFragments.clear()
+        mFragments.add(ContentFragment(displayPrevDay))
+        mFragments.add(ContentFragment(displayCurrDay))
+        mFragments.add(ContentFragment(displayNextDay))
+        adapter = CalendarAdapter(mFragments, supportFragmentManager)
+        pager.adapter = adapter
+        pager.setCurrentItem(151, false)
     }
 
     private fun setUpBottomNav() {
@@ -58,6 +93,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_calendar -> {
 
+                    goToCalendarActivity(displayCurrDay)
                     true
                 }
                 R.id.nav_change -> {
@@ -88,11 +124,11 @@ class MainActivity : AppCompatActivity() {
         myDate = MyDate(dd, mm, yyyy)
         updateUI(myDate)
 
-        val mFragments = ArrayList<ContentFragment>()
+        mFragments = ArrayList()
         mFragments.add(ContentFragment(displayPrevDay))
         mFragments.add(ContentFragment(displayCurrDay))
         mFragments.add(ContentFragment(displayNextDay))
-        val adapter = CalendarAdapter(mFragments, supportFragmentManager)
+        adapter = CalendarAdapter(mFragments, supportFragmentManager)
         pager.adapter = adapter
         pager.setCurrentItem(151, false)
         pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -145,6 +181,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToDetailsActivity() {
         val intent = Intent(applicationContext, DetailsActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goToCalendarActivity(displayCurrentDay: String) {
+        val intent = Intent(applicationContext, CalendarActivity::class.java)
+        intent.putExtra("Current day", displayCurrentDay)
+        intent.putExtra("Lunar day", myDate)
         startActivity(intent)
     }
 

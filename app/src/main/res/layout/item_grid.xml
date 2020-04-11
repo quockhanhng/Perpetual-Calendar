@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_margin="1dp"
+    android:background="@color/colorNonSelectBackground">
+
+    <TextView
+        android:id="@+id/tvDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="9" />
+
+    <TextView
+        android:id="@+id/tvLunarDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="2dp"
+        android:textColor="#001973"
+        android:textSize="18sp"
+        tools:text="17" />
+
+    <ImageView
+        android:id="@+id/tvIsSpecialDay"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="2dp" />
+
+</RelativeLayout>

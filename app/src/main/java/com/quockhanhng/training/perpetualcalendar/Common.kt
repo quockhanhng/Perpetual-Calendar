@@ -2,8 +2,6 @@ package com.quockhanhng.training.perpetualcalendar
 
 val WEEKDAYS =
     arrayOf("Thứ Bảy", "Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu")
-val WEEKDAYS_SHORT =
-    arrayOf("Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri")
 
 private fun getCentury4Zeller(year: Int): Int {
     return year / 100
@@ -34,11 +32,11 @@ fun getWeekDay(day: Int, month: Int, year: Int): String? {
     return WEEKDAYS[i]
 }
 
-private fun isLeapYear(year: Int): Boolean {
+fun isLeapYear(year: Int): Boolean {
     return year % 4 == 0 && year % 100 != 0 || year % 400 == 0
 }
 
-private fun getDayInMonth(year: Int, month: Int): Int {
+fun getDayInMonth(year: Int, month: Int): Int {
     if (month == 4 || month == 6 || month == 9 || month == 11) {
         return 30
     }
@@ -49,8 +47,8 @@ private fun getDayInMonth(year: Int, month: Int): Int {
     } else 31
 }
 
-fun getCalendarTable(month: Int, year: Int): IntArray {
-    val res = IntArray(42)
+fun getCalendarTable(month: Int, year: Int): ArrayList<String> {
+    val res = ArrayList<String>()
     val start = zeller(
         1,
         getMonth4Zeller(month),
@@ -58,57 +56,62 @@ fun getCalendarTable(month: Int, year: Int): IntArray {
         getCentury4Zeller(year)
     )
     val end = getDayInMonth(year, month)
+    for (i in 0 until start)
+        res.add("0")
     for (i in start until end + start) {
-        res[i] = i - start + 1
+        val d = i - start + 1
+        res.add("$d/$month/$year")
     }
+    for (i in end + start until 42)
+        res.add("0")
     return res
 }
 
-fun getGoodDaysInMonth(month: Int): String {
+fun getGoodDaysInMonth(month: Int): List<String> {
     return when (month) {
         1, 7 -> {
-            "Tý, Sửu, Tị, Mùi"
+            arrayListOf("Tý", " Sửu", "Tị", "Mùi")
         }
         2, 8 -> {
-            "Dần, Mão, Mùi, Dậu"
+            arrayListOf("Dần", "Mão", "Mùi", "Dậu")
         }
         3, 9 -> {
-            "Thìn, Tị, Dậu, Hợi"
+            arrayListOf("Thìn", "Tị", "Dậu", "Hợi")
         }
         4, 10 -> {
-            "Ngọ, Mùi, Sửu, Dậu"
+            arrayListOf("Ngọ", "Mùi", "Sửu", "Dậu")
         }
         5, 11 -> {
-            "Thân, Dậu, Sửu, Mão"
+            arrayListOf("Thân", "Dậu", "Sửu", "Mão")
         }
         6, 12 -> {
-            "Tuất, Hợi, Mão, Tị"
+            arrayListOf("Tuất", "Hợi", "Mão", "Tị")
         }
-        else -> ""
+        else -> arrayListOf("")
     }
 }
 
-fun getBadDaysInMonth(month: Int): String {
+fun getBadDaysInMonth(month: Int): List<String> {
     return when (month) {
         1, 7 -> {
-            "Ngọ, Mão, Hợi, Dậu"
+            arrayListOf("Ngọ", "Mão", "Hợi", "Dậu")
         }
         2, 8 -> {
-            "Thân, Tị, Sửu, Hợi"
+            arrayListOf("Thân", "Tị", "Sửu", "Hợi")
         }
         3, 9 -> {
-            "Tuất, Mùi, Sửu, Hợi"
+            arrayListOf("Tuất", "Mùi", "Sửu", "Hợi")
         }
         4, 10 -> {
-            "Tý, Dậu, Tị, Mão"
+            arrayListOf("Tý", " Dậu", "Tị", "Mão")
         }
         5, 11 -> {
-            "Dần, Hợi, Mùi, Tị"
+            arrayListOf("Dần", "Hợi", "Mùi", "Tị")
         }
         6, 12 -> {
-            "Thìn, Sửu, Dậu, Mùi"
+            arrayListOf("Thìn", "Sửu", "Dậu", "Mùi")
         }
-        else -> ""
+        else -> arrayListOf("")
     }
 }
 

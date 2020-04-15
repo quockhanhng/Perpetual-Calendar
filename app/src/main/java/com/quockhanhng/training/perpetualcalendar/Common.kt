@@ -1,5 +1,8 @@
 package com.quockhanhng.training.perpetualcalendar
 
+import java.util.*
+import kotlin.collections.ArrayList
+
 val WEEKDAYS =
     arrayOf("Thứ Bảy", "Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu")
 
@@ -137,4 +140,18 @@ fun getGoodHourInDay(day: Int): String {
         }
         else -> ""
     }
+}
+
+fun getPreviousDay(date: Date): Date {
+    val calendar = Calendar.getInstance()
+    calendar.time = date
+    calendar.add(Calendar.DAY_OF_MONTH, -1)
+    return calendar.time
+}
+
+fun getNextDay(date: Date): Date {
+    val calendar = Calendar.getInstance()
+    calendar.time = date
+    calendar.add(Calendar.DAY_OF_MONTH, 1)
+    return calendar.time
 }

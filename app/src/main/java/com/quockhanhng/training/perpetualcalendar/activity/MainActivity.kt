@@ -9,6 +9,8 @@ import com.quockhanhng.training.perpetualcalendar.R
 import com.quockhanhng.training.perpetualcalendar.adapter.CalendarAdapter
 import com.quockhanhng.training.perpetualcalendar.fragment.ContentFragment
 import com.quockhanhng.training.perpetualcalendar.getGoodHourInDay
+import com.quockhanhng.training.perpetualcalendar.getNextDay
+import com.quockhanhng.training.perpetualcalendar.getPreviousDay
 import com.quockhanhng.training.perpetualcalendar.model.MyDate
 import com.quockhanhng.training.perpetualcalendar.model.MyDate.Companion.CHI
 import kotlinx.android.synthetic.main.activity_main.*
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         setUpBottomNav()
         setUpAdapter()
-        tvMonth.setOnClickListener{
+        tvMonth.setOnClickListener {
             goToCalendarActivity(displayCurrDay)
         }
     }
@@ -88,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_details -> {
 
-                    goToDetailsActivity()
+                    goToDetailsActivity(displayCurrDay)
                     true
                 }
                 R.id.nav_calendar -> {
@@ -179,8 +181,10 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun goToDetailsActivity() {
+    private fun goToDetailsActivity(displayCurrentDay: String) {
         val intent = Intent(applicationContext, DetailsActivity::class.java)
+        intent.putExtra("Current day", displayCurrentDay)
+        intent.putExtra("Lunar day", myDate)
         startActivity(intent)
     }
 
@@ -189,20 +193,6 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("Current day", displayCurrentDay)
         intent.putExtra("Lunar day", myDate)
         startActivity(intent)
-    }
-
-    private fun getPreviousDay(date: Date): Date {
-        val calendar = Calendar.getInstance()
-        calendar.time = date
-        calendar.add(Calendar.DAY_OF_MONTH, -1)
-        return calendar.time
-    }
-
-    private fun getNextDay(date: Date): Date {
-        val calendar = Calendar.getInstance()
-        calendar.time = date
-        calendar.add(Calendar.DAY_OF_MONTH, 1)
-        return calendar.time
     }
 
     fun updateUI(myDate: MyDate) {

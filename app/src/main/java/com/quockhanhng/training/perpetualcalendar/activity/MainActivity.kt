@@ -91,17 +91,15 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_details -> {
-
                     goToDetailsActivity(displayCurrDay)
                     true
                 }
                 R.id.nav_calendar -> {
-
                     goToCalendarActivity(displayCurrDay)
                     true
                 }
                 R.id.nav_change -> {
-
+                    goToChangeDayActivity(displayCurrDay)
                     true
                 }
                 R.id.nav_pray -> {
@@ -194,6 +192,12 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(applicationContext, CalendarActivity::class.java)
         intent.putExtra("Current day", displayCurrentDay)
         intent.putExtra("Lunar day", myDate)
+        startActivity(intent)
+    }
+
+    private fun goToChangeDayActivity(displayCurrentDay: String) {
+        val intent = Intent(applicationContext, ChangeDayActivity::class.java)
+        intent.putExtra("Current day", displayCurrentDay)
         startActivity(intent)
     }
 

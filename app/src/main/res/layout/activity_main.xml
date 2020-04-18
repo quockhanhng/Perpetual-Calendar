@@ -116,16 +116,16 @@
                     android:textStyle="bold"
                     tools:text="Canh Thìn" />
 
-<!--                <TextClock-->
-<!--                    android:id="@+id/tvClock"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:format12Hour="hh:mm:ss a"-->
-<!--                    android:gravity="center"-->
-<!--                    android:textColor="#068F7B"-->
-<!--                    android:textSize="20sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    tools:text="12:00:00" />-->
+                <TextClock
+                    android:id="@+id/tvClock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:format12Hour="hh:mm:ss a"
+                    android:gravity="center"
+                    android:textColor="#068F7B"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="12:00:00" />
             </LinearLayout>
 
             <LinearLayout

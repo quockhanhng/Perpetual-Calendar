@@ -1,5 +1,6 @@
 package com.quockhanhng.training.perpetualcalendar
 
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -154,4 +155,10 @@ fun getNextDay(date: Date): Date {
     calendar.time = date
     calendar.add(Calendar.DAY_OF_MONTH, 1)
     return calendar.time
+}
+
+fun dateToMilliseconds(dateString: String): Long {
+    val sdf = SimpleDateFormat("dd - MM - yyyy")
+    val date = sdf.parse(dateString)!!
+    return date.time
 }

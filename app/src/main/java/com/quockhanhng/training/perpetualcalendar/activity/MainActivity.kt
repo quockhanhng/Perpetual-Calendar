@@ -3,14 +3,12 @@ package com.quockhanhng.training.perpetualcalendar.activity
 import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
-import com.quockhanhng.training.perpetualcalendar.R
+import com.quockhanhng.training.perpetualcalendar.*
 import com.quockhanhng.training.perpetualcalendar.adapter.CalendarAdapter
 import com.quockhanhng.training.perpetualcalendar.fragment.ContentFragment
-import com.quockhanhng.training.perpetualcalendar.getGoodHourInDay
-import com.quockhanhng.training.perpetualcalendar.getNextDay
-import com.quockhanhng.training.perpetualcalendar.getPreviousDay
 import com.quockhanhng.training.perpetualcalendar.model.MyDate
 import com.quockhanhng.training.perpetualcalendar.model.MyDate.Companion.CHI
 import kotlinx.android.synthetic.main.activity_main.*
@@ -41,9 +39,13 @@ class MainActivity : AppCompatActivity() {
 
         setUpBottomNav()
         setUpAdapter()
+
+        tvToday.text = sdf.format(rightNow).split("/")[0]
         tvMonth.setOnClickListener {
             goToCalendarActivity(displayCurrDay)
         }
+
+        SharedPrefUtil.init(applicationContext)
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -212,5 +214,18 @@ class MainActivity : AppCompatActivity() {
         var goodHours = "Giờ hoàng đạo: "
         goodHours += getGoodHourInDay(CHI.indexOf(tvLunarDay.text.split(" ")[1]) + 1)
         tvLunarHour.text = goodHours
+    }
+
+    fun goBackToday(view: View) {
+        goToThisDay(sdf.format(rightNow))
+    }
+
+    fun shareThisDay(view: View) {
+
+    }
+
+    fun openNote(view: View) {
+        val intent = Intent(applicationContext, NoteManagerActivity::class.java)
+        startActivity(intent)
     }
 }

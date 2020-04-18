@@ -77,4 +77,17 @@
         <item>‘Trong một thế giới đang thay đổi rất nhanh chóng, lộ trình duy nhất đưa bạn đến thất bại là không dám mạo hiểm’ – Mark Luckerbery</item>
 
     </string-array>
+
+    <string-array name="spinner_is_lunar_options">
+        <item>Theo Dương lịch</item>
+        <item>Theo Âm lịch</item>
+    </string-array>
+
+    <string-array name="spinner_reminder_options">
+        <item>Không nhắc</item>
+        <item>Nhắc trong ngày</item>
+        <item>Nhắc trước 1 ngày</item>
+        <item>Nhắc trước 2 ngày</item>
+    </string-array>
+
 </resources>

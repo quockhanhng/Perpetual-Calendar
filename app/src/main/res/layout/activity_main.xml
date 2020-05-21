@@ -10,7 +10,7 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom" >
+        android:layout_above="@+id/bottom">
 
         <FrameLayout
             android:id="@+id/fragment_container"
@@ -19,6 +19,7 @@
     </androidx.viewpager.widget.ViewPager>
 
     <RelativeLayout
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
@@ -59,16 +60,57 @@
         android:id="@+id/tvMonth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:textColor="#FF0000"
         android:textSize="25sp"
         android:textStyle="bold"
         tools:text="4/2020" />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp">
+
+        <ImageView
+            android:id="@+id/ivWeather"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:onClick="openWeatherForecast" />
+
+        <TextView
+            android:id="@+id/tvWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:textColor="#041777"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="°C" />
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvWeather"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25sp"
+            android:layout_marginEnd="2dp"
+            android:textColor="#AE0606"
+            android:textSize="16sp"
+            tools:text="Ha Noi" />
+
+    </RelativeLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/bottom">
 
         <RelativeLayout

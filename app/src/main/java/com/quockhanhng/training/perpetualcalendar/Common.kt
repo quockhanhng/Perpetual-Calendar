@@ -7,6 +7,10 @@ import kotlin.collections.ArrayList
 val WEEKDAYS =
     arrayOf("Thứ Bảy", "Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu")
 
+val WEEKDAYS_SHORT =
+    arrayOf("T7", "CN", "T2", "T3", "T4", "T5", "T6")
+
+
 private fun getCentury4Zeller(year: Int): Int {
     return year / 100
 }
@@ -34,6 +38,16 @@ fun getWeekDay(day: Int, month: Int, year: Int): String? {
         getCentury4Zeller(year)
     )
     return WEEKDAYS[i]
+}
+
+fun getWeekDayShort(day: Int, month: Int, year: Int): String? {
+    val i = zeller(
+        day,
+        getMonth4Zeller(month),
+        getYear4Zeller(year),
+        getCentury4Zeller(year)
+    )
+    return WEEKDAYS_SHORT[i]
 }
 
 fun isLeapYear(year: Int): Boolean {

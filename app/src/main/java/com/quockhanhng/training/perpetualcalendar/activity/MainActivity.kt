@@ -3,6 +3,7 @@ package com.quockhanhng.training.perpetualcalendar.activity
 import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
@@ -11,9 +12,15 @@ import com.quockhanhng.training.perpetualcalendar.adapter.CalendarAdapter
 import com.quockhanhng.training.perpetualcalendar.fragment.ContentFragment
 import com.quockhanhng.training.perpetualcalendar.model.MyDate
 import com.quockhanhng.training.perpetualcalendar.model.MyDate.Companion.CHI
+import com.quockhanhng.training.perpetualcalendar.model.WeatherResponse
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.roundToInt
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,10 +39,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var myDate: MyDate
     private lateinit var adapter: CalendarAdapter
     private lateinit var mFragments: ArrayList<ContentFragment>
+    private var weatherSubscription: Disposable? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        SharedPrefUtil.init(applicationContext)
 
         setUpBottomNav()
         setUpAdapter()
@@ -44,8 +54,11 @@ class MainActivity : AppCompatActivity() {
         tvMonth.setOnClickListener {
             goToCalendarActivity(displayCurrDay)
         }
+    }
 
-        SharedPrefUtil.init(applicationContext)
+    override fun onResume() {
+        super.onResume()
+        setUpWeather()
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -231,5 +244,45 @@ class MainActivity : AppCompatActivity() {
     fun openNote(view: View) {
         val intent = Intent(applicationContext, NoteManagerActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun setUpWeather() {
+        tvWeather.text = "°C"
+        val context = ivWeather.context
+        val id =
+            context.resources.getIdentifier("ic_weather_default", "drawable", context.packageName)
+        ivWeather.setImageResource(id)
+        SharedPrefUtil.getData("cityName")?.let { city ->
+            API.create().apply {
+                weatherSubscription = weatherRightNow(city)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                        { onGetWeatherInfoSuccess(it, city) },
+                        { onGetWeatherInfoFailure(it) })
+            }
+        }
+    }
+
+    private fun onGetWeatherInfoSuccess(weatherResponse: WeatherResponse, cityName: String) {
+        tvWeather.text = "${weatherResponse.main.temp.roundToInt()}°C"
+        tvCity.text = cityName
+        val iconId = "ic_${weatherResponse.weatherList[0].icon}"
+        val context = ivWeather.context
+        val id = context.resources.getIdentifier(iconId, "drawable", context.packageName)
+        ivWeather.setImageResource(id)
+    }
+
+    private fun onGetWeatherInfoFailure(it: Throwable) {
+        Log.w("Main", it.toString())
+    }
+
+    fun openWeatherForecast(view: View) {
+        startActivity(Intent(applicationContext, WeatherActivity::class.java))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        weatherSubscription!!.dispose()
     }
 }
